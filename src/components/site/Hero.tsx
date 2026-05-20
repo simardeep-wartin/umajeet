@@ -1,5 +1,7 @@
+"use client";
+
 import { useEffect, useState } from "react";
-import hero from "@/assets/hero.jpg";
+import building from "@/assets/buildings3.jpg";
 
 const slides = [
   { title: "Build Dreams Into Reality", subtitle: "With trusted real estate solutions" },
@@ -16,30 +18,34 @@ export function Hero() {
   }, []);
 
   return (
-    <section id="home" className="relative h-[88vh] min-h-[560px] w-full overflow-hidden">
+    <section id="home" className="h-[700px] w-full relative overflow-hidden">
       <img
-        src={hero}
+        src={building.src}
         alt="Construction skyline"
         width={1920}
-        height={1080}
+        height={700}
         className="absolute inset-0 h-full w-full object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60" />
-      <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-end px-6 pb-20 md:px-8 md:pb-28">
-        <div className="max-w-3xl">
-          <h1 className="text-4xl font-bold leading-tight text-white md:text-6xl">
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/60" />
+      <div className="absolute bottom-0 left-0 w-full px-16 pb-12 md:pb-16">
+        <div className="max-w-[900px]">
+          <h1 className="text-[64px] md:text-[72px] font-black leading-[1.2] text-white">
             {slides[i].title}
           </h1>
-          <p className="mt-4 text-base text-white/90 md:text-lg">{slides[i].subtitle}</p>
+          <p className="text-[24px] md:text-[32px] font-bold leading-[1.5] text-white mt-4">
+            {slides[i].subtitle}
+          </p>
         </div>
-        <div className="mt-8 flex items-center gap-2">
+        <div className="mt-8 flex items-center justify-center gap-3">
           {slides.map((_, idx) => (
             <button
               key={idx}
               onClick={() => setI(idx)}
               aria-label={`Slide ${idx + 1}`}
-              className={`h-1.5 rounded-full transition-all ${
-                idx === i ? "w-8 bg-white" : "w-4 bg-white/50"
+              className={`rounded-full transition-all ${
+                idx === i
+                  ? "h-4 w-14 bg-white"
+                  : "h-4 w-4 border-2 border-white bg-transparent"
               }`}
             />
           ))}

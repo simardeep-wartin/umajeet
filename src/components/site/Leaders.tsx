@@ -1,6 +1,8 @@
+"use client";
+
 import { useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import leader from "@/assets/leader.jpg";
+import leader from "@/assets/owner.jpg";
 
 const leaders = [
   {
@@ -25,23 +27,27 @@ export function Leaders() {
     <section id="leaders" className="bg-white py-20">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         {/* Intro banner */}
-        <div className="rounded-xl bg-[var(--brand-light)] px-6 py-10 md:px-12 md:py-14">
+        <div className="rounded-xl bg-[#a6d2ff] px-[60px] py-[60px]">
           <div className="grid items-center gap-8 md:grid-cols-2">
             <div>
-              <p className="text-xs font-semibold tracking-[0.2em] text-[var(--brand-navy)]">
-                — OUR LEADERS
-              </p>
-              <h2 className="mt-3 text-3xl font-bold text-[var(--brand-navy)] md:text-4xl">
+              <div className="flex items-center gap-4">
+                <span className="h-px w-16 bg-[#0c1b2e]" />
+                <p className="text-[24px] font-bold text-[#0c1b2e] tracking-widest">OUR LEADERS</p>
+              </div>
+              <h2 className="mt-4 text-[48px] font-black text-[#1a1a1a] leading-[1.1]">
                 Invested in your success
               </h2>
             </div>
             <div>
-              <p className="text-sm leading-7 text-[var(--brand-navy)]/80">
+              <p className="text-[20px] leading-[1.4] text-[#1a1a1a]">
                 As owners, we are more accountable to you and more invested in your success. Across
                 all levels of our organization, our experienced, innovative solution providers put
                 our culture of ownership to work for you. When you succeed, we succeed.
               </p>
-              <a href="#contact" className="mt-4 inline-block text-sm font-semibold text-[var(--brand-navy)] underline-offset-4 hover:underline">
+              <a
+                href="#contact"
+                className="mt-4 inline-block text-[18px] font-semibold text-[#0c1b2e] underline-offset-4 hover:underline"
+              >
                 Learn More
               </a>
             </div>
@@ -51,31 +57,51 @@ export function Leaders() {
         {/* Leader card */}
         <div className="mt-12 grid items-center gap-10 md:grid-cols-2">
           <div>
-            <h3 className="text-3xl font-bold text-[var(--brand-navy)]">{l.name}</h3>
-            <p className="mt-1 text-sm font-medium text-muted-foreground">{l.role}</p>
-            <div className="mt-6 space-y-4 text-sm leading-7 text-muted-foreground md:text-[15px]">
+            <h3 className="text-[40px] font-bold text-[#0c1b2e]">{l.name}</h3>
+            <p className="mt-1 text-[24px] font-medium text-[#666666]">{l.role}</p>
+            <div className="mt-6 space-y-4 text-[20px] leading-normal text-[#1a1a1a] text-justify">
               {l.bio.split("\n\n").map((p, idx) => (
                 <p key={idx}>{p}</p>
               ))}
             </div>
             <div className="mt-8 flex items-center gap-6">
               <div className="flex gap-3">
-                <button onClick={prev} aria-label="Previous" className="grid h-10 w-10 place-items-center rounded-full border border-border text-[var(--brand-navy)] transition hover:bg-[var(--brand-navy)] hover:text-white">
-                  <ArrowLeft className="h-4 w-4" />
+                <button
+                  onClick={prev}
+                  aria-label="Previous"
+                  className="h-14 w-14 rounded-full border border-[#d9d9d9] flex items-center justify-center text-[#0c1b2e] hover:bg-[#0c1b2e] hover:text-white transition"
+                >
+                  <ArrowLeft className="h-5 w-5" />
                 </button>
-                <button onClick={next} aria-label="Next" className="grid h-10 w-10 place-items-center rounded-full border border-border text-[var(--brand-navy)] transition hover:bg-[var(--brand-navy)] hover:text-white">
-                  <ArrowRight className="h-4 w-4" />
+                <button
+                  onClick={next}
+                  aria-label="Next"
+                  className="h-14 w-14 rounded-full border border-[#d9d9d9] flex items-center justify-center text-[#0c1b2e] hover:bg-[#0c1b2e] hover:text-white transition"
+                >
+                  <ArrowRight className="h-5 w-5" />
                 </button>
               </div>
-              <div className="flex gap-2">
+              <div className="flex items-center gap-2">
                 {leaders.map((_, idx) => (
-                  <span key={idx} className={`h-2 rounded-full transition-all ${idx === i ? "w-6 bg-[var(--brand-blue)]" : "w-2 bg-border"}`} />
+                  <span
+                    key={idx}
+                    className={`rounded-full transition-all ${
+                      idx === i ? "w-6 h-3 bg-[#104295]" : "w-3 h-3 bg-[#d9d9d9]"
+                    }`}
+                  />
                 ))}
               </div>
             </div>
           </div>
-          <div className="overflow-hidden rounded-xl bg-[var(--brand-navy)]">
-            <img src={leader} alt={l.name} width={800} height={900} loading="lazy" className="h-[420px] w-full object-cover md:h-[520px]" />
+          <div className="border border-[#d9d9d9] rounded-3xl px-10 py-4">
+            <img
+              src={leader.src}
+              alt={l.name}
+              width={800}
+              height={900}
+              loading="lazy"
+              className="h-[420px] w-full object-cover rounded-2xl md:h-[673px]"
+            />
           </div>
         </div>
       </div>

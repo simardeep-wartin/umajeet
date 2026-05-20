@@ -1,5 +1,8 @@
+"use client";
+
 import { useEffect, useState } from "react";
-import { Menu, X, Building2 } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const links = [
   { label: "Home", href: "#home" },
@@ -38,24 +41,10 @@ export function Navbar() {
   };
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled || open
-          ? "bg-white/95 backdrop-blur shadow-sm"
-          : "bg-white/90 backdrop-blur md:bg-transparent md:shadow-none"
-      }`}
-    >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 md:px-8 md:py-4">
-        <a href="#home" onClick={(e) => { e.preventDefault(); go("#home"); }} className="flex items-center gap-2">
-          <span className="grid h-9 w-9 place-items-center rounded-md bg-[var(--brand-blue)] text-white">
-            <Building2 className="h-5 w-5" />
-          </span>
-          <span className="leading-tight">
-            <span className="block text-lg font-bold text-[var(--brand-navy)]">Umajeet</span>
-            <span className="block text-[10px] tracking-wide text-muted-foreground">
-              Infratech Private Limited
-            </span>
-          </span>
+    <header className="fixed inset-x-0 top-0 z-50 bg-white py-6 md:py-8 shadow-sm">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 md:px-8 cursor-pointer">
+        <a href="#home" onClick={(e) => { e.preventDefault(); go("#home"); }}>
+          <img src={logo.src} alt="Umajeet Infratech" className="h-14 w-auto" />
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -64,8 +53,8 @@ export function Navbar() {
               key={l.href}
               href={l.href}
               onClick={(e) => { e.preventDefault(); go(l.href); }}
-              className={`text-sm font-medium transition-colors hover:text-[var(--brand-blue)] ${
-                active === l.href ? "text-[var(--brand-blue)]" : "text-[var(--brand-navy)]"
+              className={`text-[18px] font-bold transition-colors hover:text-[#1D4ED8] ${
+                active === l.href ? "text-[#1D4ED8]" : "text-[#0c1b2e]"
               }`}
             >
               {l.label}
@@ -76,7 +65,7 @@ export function Navbar() {
         <div className="hidden md:block">
           <button
             onClick={() => go("#contact")}
-            className="rounded-md bg-[var(--brand-blue)] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-[var(--brand-navy)] hover:shadow-md"
+            className="bg-[#000154] rounded-2xl px-6 py-4 text-[18px] font-bold text-white transition hover:opacity-90"
           >
             Get Quotation
           </button>
@@ -85,14 +74,14 @@ export function Navbar() {
         <button
           aria-label="Menu"
           onClick={() => setOpen((v) => !v)}
-          className="grid h-10 w-10 place-items-center rounded-md text-[var(--brand-navy)] md:hidden"
+          className="grid h-10 w-10 place-items-center rounded-md text-[#0c1b2e] md:hidden"
         >
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
 
       <div
-        className={`overflow-hidden border-t border-border bg-white md:hidden transition-[max-height,opacity] duration-300 ${
+        className={`overflow-hidden border-t border-[#d9d9d9] bg-white md:hidden transition-[max-height,opacity] duration-300 ${
           open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
@@ -102,14 +91,16 @@ export function Navbar() {
               key={l.href}
               href={l.href}
               onClick={(e) => { e.preventDefault(); go(l.href); }}
-              className="rounded-md px-3 py-2 text-sm font-medium text-[var(--brand-navy)] hover:bg-secondary"
+              className={`rounded-md px-3 py-2 text-[18px] font-bold text-[#0c1b2e] hover:bg-gray-100 ${
+                active === l.href ? "text-[#1D4ED8]" : ""
+              }`}
             >
               {l.label}
             </a>
           ))}
           <button
             onClick={() => go("#contact")}
-            className="mt-2 rounded-md bg-[var(--brand-blue)] px-4 py-2.5 text-sm font-semibold text-white"
+            className="mt-2 bg-[#000154] rounded-2xl px-6 py-4 text-[18px] font-bold text-white"
           >
             Get Quotation
           </button>

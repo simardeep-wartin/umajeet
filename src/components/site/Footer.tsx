@@ -1,4 +1,4 @@
-import { Building2 } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const cols = [
   { title: "Product", items: ["Features", "Integrations", "Pricing"] },
@@ -8,22 +8,14 @@ const cols = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-white">
-      <div className="mx-auto max-w-7xl px-6 py-14 md:px-8">
+    <footer className="bg-white shadow-[0px_-7px_10.45px_rgba(16,66,149,0.2)]">
+      <div className="mx-auto max-w-7xl pt-20 pb-10 px-20">
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
-            <a href="#home" className="flex items-center gap-2">
-              <span className="grid h-9 w-9 place-items-center rounded-md bg-[var(--brand-blue)] text-white">
-                <Building2 className="h-5 w-5" />
-              </span>
-              <span className="leading-tight">
-                <span className="block text-lg font-bold text-[var(--brand-navy)]">Umajeet</span>
-                <span className="block text-[10px] tracking-wide text-muted-foreground">
-                  Infratech Private Limited
-                </span>
-              </span>
+            <a href="#home">
+              <img src={logo.src} alt="Umajeet Infratech" className="h-14 w-auto" />
             </a>
-            <p className="mt-5 text-sm text-muted-foreground">
+            <p className="mt-5 text-[18px] text-[#1a1a1a]">
               More Comfortable.
               <br />
               More Classy.
@@ -31,12 +23,12 @@ export function Footer() {
           </div>
           {cols.map((c) => (
             <div key={c.title}>
-              <h4 className="text-sm font-semibold text-[var(--brand-navy)]">{c.title}</h4>
+              <h4 className="text-[18px] font-bold text-black">{c.title}</h4>
               <ul className="mt-4 space-y-2">
-                {c.items.map((i) => (
-                  <li key={i}>
-                    <a href="#" className="text-sm text-muted-foreground transition hover:text-[var(--brand-blue)]">
-                      {i}
+                {c.items.map((item) => (
+                  <li key={item}>
+                    <a href="#" className="text-[16px] text-[#1a1a1a] transition hover:text-[#1D4ED8]">
+                      {item}
                     </a>
                   </li>
                 ))}
@@ -45,13 +37,15 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-border pt-6 text-xs text-muted-foreground md:flex-row md:items-center">
-          <p>© 2025 Umajeet Infratech. All rights reserved.</p>
+        <div className="mt-12 bg-[#1a1a1a] h-px w-full" />
+
+        <div className="mt-6 flex flex-col items-start justify-between gap-3 md:flex-row md:items-center">
+          <p className="text-[14px] text-[#1a1a1a]">© 2025 Umajeet Infratech. All rights reserved.</p>
           <div className="flex flex-wrap gap-x-6 gap-y-2">
-            <a href="#" className="hover:text-[var(--brand-blue)]">Terms of Service</a>
-            <a href="#" className="hover:text-[var(--brand-blue)]">Policy service</a>
-            <a href="#" className="hover:text-[var(--brand-blue)]">Cookie Policy</a>
-            <a href="#" className="hover:text-[var(--brand-blue)]">Partners</a>
+            <a href="#" className="text-[14px] text-[#1a1a1a] hover:text-[#1D4ED8]">Terms of Service</a>
+            <a href="#" className="text-[14px] text-[#1a1a1a] hover:text-[#1D4ED8]">Policy service</a>
+            <a href="#" className="text-[14px] text-[#1a1a1a] hover:text-[#1D4ED8]">Cookie Policy</a>
+            <a href="#" className="text-[14px] text-[#1a1a1a] hover:text-[#1D4ED8]">Partners</a>
           </div>
         </div>
       </div>
